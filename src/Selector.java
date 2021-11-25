@@ -63,7 +63,7 @@ public class Selector {
         }
         return values;
     }
-
+    //Get keys for ignoredNames
     private static ArrayList<Integer> getIgnoredNameKeys() {
         ArrayList<Integer> ignoredKeys = new ArrayList<>();
         for (String ignoredInstructor : ignoreName) {
@@ -78,7 +78,7 @@ public class Selector {
         }
         return ignoredKeys;
     }
-
+    //Get names from Hashmap
     private static String[] getNames(int[] RNGValues) {
         String[] names = new String[RNGValues.length];
         for (int i = 0; i < names.length; i++) {
