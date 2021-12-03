@@ -12,15 +12,29 @@ public class Selector {
     private final static ArrayList<String> ignoreName = new ArrayList<>();
 
     public static void main(String[] args) throws IOException {
-        //read names from file
-        File names = new File("src/NameList");
-        BufferedReader br = new BufferedReader(new FileReader(names));
+        //read names from file or from console
         String name;
         int counter = 0;
-        while ((name = br.readLine()) != null) {
-            Selector.names.put(counter, name);
-            counter++;
+        //reads name from file
+        {
+            File names = new File("src/NameList");
+            BufferedReader br = new BufferedReader(new FileReader(names));
+            while ((name = br.readLine()) != null) {
+                Selector.names.put(counter, name);
+                counter++;
+            }
         }
+        //reads names from console
+        {
+            System.out.println("Input Names, 0 to stop");
+            name = in.next();
+            while(!in.next().equals("0")){
+                Selector.names.put(counter, name);
+                counter++;
+                name = in.next();
+            }
+        }
+
 
 
         //Inputs data needed for training week
